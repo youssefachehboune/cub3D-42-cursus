@@ -8,7 +8,7 @@ HDR = cub3d.h libft/libft.h gnl/get_next_line.h
 
 OBJ = $(SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
