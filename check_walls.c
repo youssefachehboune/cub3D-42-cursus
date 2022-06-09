@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:01:02 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/08 14:03:24 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/09 15:59:04 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	check_middle_lines(t_file *file)
 			&& ((i - 1 >= 0 && file->scene[i - 1][j] == '0')
 			|| (i + 1 < file->height && file->scene[i + 1][j] == '0')
 			|| (j - 1 >= 0 && file->scene[i][j - 1] == '0')
-			|| (j + 1 < ft_strlen(file->scene[i])
+			|| (j + 1 < (int)ft_strlen(file->scene[i])
 			&& file->scene[i][j + 1] == '0')))
 				return (1);
 		}

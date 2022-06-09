@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:08:20 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/08 17:35:03 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/09 15:59:36 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	fill_lst(t_file *file, int fd)
 	int		i;
 
 	i = -1;
+	lst = NULL;
 	line = get_next_line(fd);
 	if (!line)
 		return (perror("Error\nmalloc"), 1);
