@@ -32,7 +32,7 @@ int	check_chars_used(char **str)
 			&& str[i][j] != 'N' && str[i][j] != 'S'
 			&& str[i][j] != 'E' && str[i][j] != 'W'
 			&& str[i][j] != ' ' && str[i][j] != '\t')
-				return (printf("Error\n\nForbidden character in the map\n"), 1);
+				return (printf("Error\nForbidden character in the map\n"), 1);
 		}
 	}
 	if (nbr_of_players != 1)
