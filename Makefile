@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(HDR)
 	@cc $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-	@echo "It's time to play a game"
+	@echo "\033[0;32mIt's time to play a game\033[0;37m"
 
 .c.o: $(SRC) $(LIBFT) $(HDR)
 	@cc $(CFLAGS) -c $< -o $(<:.c=.o)
