@@ -30,7 +30,6 @@ int	continue_checking_colors(char **s)
 	char	*trim;
 
 	len = -1;
-	trim = NULL;
 	while (++len < 3)
 	{
 		i = -1;
@@ -51,7 +50,6 @@ int	continue_checking_colors(char **s)
 int	check_colors(char *str, t_file *file, char c)
 {
 	char	**s;
-	char	*trim;
 	int		len;
 	int		color;
 
