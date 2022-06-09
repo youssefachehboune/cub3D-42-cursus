@@ -30,6 +30,7 @@ int	continue_checking_colors(char **s)
 	char	*trim;
 
 	len = -1;
+	trim = NULL;
 	while (++len < 3)
 	{
 		i = -1;
