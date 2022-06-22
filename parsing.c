@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:18:06 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/08 18:29:50 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/22 22:13:22 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_map_content(t_file *file)
 		return (perror("Error\nmalloc"), 1);
 	if (check_chars_used(file->scene))
 		return (1);
-	if (check_first_line(file) || check_last_line(file) || check_left_wall(file)
+	if (check_first_and_last_line(file) || check_left_wall(file)
 		|| check_right_wall(file) || check_middle_lines(file))
 		return (printf("Error\nThe map is not closed by walls\n"), 1);
 	return (0);

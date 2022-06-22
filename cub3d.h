@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/08 19:11:54 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/22 22:14:16 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ typedef struct s_file
 int		parsing(t_file *file, int ac, char **av);
 void	free_2d_array(char **str);
 void	free_file(t_file *file);
-int		check_first_line(t_file *file);
-int		check_last_line(t_file *file);
+int		check_first_and_last_line(t_file *file);
 int		check_left_wall(t_file *file);
 int		check_right_wall(t_file *file);
 int		check_middle_lines(t_file *file);
