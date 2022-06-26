@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/22 22:14:16 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/26 13:10:52 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
+# include "minilibx/mlx.h"
+
 
 typedef struct s_file
 {
@@ -28,6 +30,33 @@ typedef struct s_file
 	t_list	*map;
 	char	**scene;
 }	t_file;
+
+typedef struct s_player
+{
+	int		x_pos;
+	int		y_pos;
+	double	player_dir;
+}	t_player;
+
+typedef struct s_txt
+{
+	void    *txt_ptr;
+	char    *txt_adr;
+	int     w;
+	int     h;
+	int     bpp;
+	int     len;
+	int     endian;
+}	t_txt;
+
+typedef struct s_mlx
+{
+	void		*init_ptr;
+	void		*win;
+	t_file		*file;
+	t_player	*player;
+	t_txt		*txt;
+}	t_mlx;
 
 int		parsing(t_file *file, int ac, char **av);
 void	free_2d_array(char **str);

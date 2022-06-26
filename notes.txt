@@ -4,6 +4,7 @@ Create mlx struct
 	t_file *file: elements of the map from passing;
 	t_player *player: Players coordinate and key press;
 	t_txt *txt: info of wall texture;
+
 Create player struct
 	int x_pos: pos x of player in map;
 	int y_pos: pos y of player in map;
