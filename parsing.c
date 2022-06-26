@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:18:06 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/22 22:13:22 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:56:54 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	check_file_content(t_file *file)
 
 	while (file->map)
 	{
-		str = ft_split((char *)file->map->content, ' ');
+		str = ft_split2((char *)file->map->content, " \t");
 		i = check_elements(file, str);
 		if (i == 2)
 			continue ;

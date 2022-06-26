@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:08:20 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/09 15:59:36 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:59:13 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,25 +102,25 @@ int	fill_textures(t_file *file, char **str)
 	{
 		if (file->no)
 			return (printf("Error\nMany NO textures\n"), 1);
-		file->no = ft_strdup(str[1]);
+		file->no = ft_strtrim(str[1], "\n");
 	}
 	else if (!ft_strncmp(str[0], "SO", 2))
 	{
 		if (file->so)
 			return (printf("Error\nMany SO textures\n"), 1);
-		file->so = ft_strdup(str[1]);
+		file->so = ft_strtrim(str[1], "\n");
 	}
 	else if (!ft_strncmp(str[0], "WE", 2))
 	{
 		if (file->we)
 			return (printf("Error\nMany WE textures\n"), 1);
-		file->we = ft_strdup(str[1]);
+		file->we = ft_strtrim(str[1], "\n");
 	}
 	else if (!ft_strncmp(str[0], "EA", 2))
 	{
 		if (file->ea)
 			return (printf("Error\nMany EA textures\n"), 1);
-		file->ea = ft_strdup(str[1]);
+		file->ea = ft_strtrim(str[1], "\n");
 	}
 	return (0);
 }

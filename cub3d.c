@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:03:53 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 18:33:58 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:57:47 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ int txt_adr_ptr(t_mlx *mlx, char *path, int dir)
 
 int init_txt(t_mlx *mlx)
 {
-	if(txt_adr_ptr(mlx, ft_strtrim(mlx->file->we, " \n\t"), 0))
+	if(txt_adr_ptr(mlx, mlx->file->we, 0))
 		return(1);
-	if(txt_adr_ptr(mlx, ft_strtrim(mlx->file->no, " \n\t"), 1))
+	if(txt_adr_ptr(mlx, mlx->file->no, 1))
 		return(1);
-	if(txt_adr_ptr(mlx, ft_strtrim(mlx->file->ea, " \n\t"), 2))
+	if(txt_adr_ptr(mlx, mlx->file->ea, 2))
 		return(1);
-	if(txt_adr_ptr(mlx, ft_strtrim(mlx->file->so, " \n\t"), 3))
+	if(txt_adr_ptr(mlx, mlx->file->so, 3))
 		return(1);
 	return(0);
 }

@@ -2,7 +2,7 @@ NAME = cube3D
 
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-SRC = cub3d.c check_elements.c check_walls.c parsing.c fill_something.c $(GNL)
+SRC = cub3d.c check_elements.c check_walls.c parsing.c fill_something.c ft_split2.c $(GNL)
 
 HDR = cub3d.h libft/libft.h gnl/get_next_line.h
 

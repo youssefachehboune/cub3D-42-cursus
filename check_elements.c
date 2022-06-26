@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:13:07 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/08 18:36:54 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:55:25 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 int	check_textures(char **str, t_file *file)
 {
-	if (ft_strncmp(".xpm", str[1] + ft_strlen(str[1]) - 5, 4))
+	int	i;
+
+	i = 4;
+	if(str[1][ft_strlen(str[1]) - 1] == '\n')
+		i = 5;
+	if (ft_strncmp(".xpm", str[1] + ft_strlen(str[1]) - i, 4))
 		return (printf("Error\nWrong extension\n"), 1);
-	if (str[2])
-		return (printf("Error\nWrong texture\n"), 1);
+	if (str[2] && ft_strncmp(str[2], "\n", 1))
+		return (printf("Error\nToo many textures\n"), 1);
 	if (fill_textures(file, str))
 		return (1);
 	return (0);
