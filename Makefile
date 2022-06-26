@@ -12,10 +12,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
-all: $(NAME)
+all: $(NAME) clean
 
 $(NAME): $(OBJ) $(LIBFT) $(HDR)
-	@gcc -Lmlx -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@gcc -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "\033[0;32mIt's time to play a game\033[0;37m"
 
 .c.o: $(SRC) $(LIBFT) $(HDR)

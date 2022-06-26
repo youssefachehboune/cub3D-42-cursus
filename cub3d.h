@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 13:10:52 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:34:08 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
-# include "minilibx/mlx.h"
-
+# include "mlx.h"
+# include "math.h"
 
 typedef struct s_file
 {
