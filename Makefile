@@ -15,11 +15,11 @@ LIBFT = libft/libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(HDR)
-	@gcc -fsanitize=address $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@gcc -Lmlx -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "\033[0;32mIt's time to play a game\033[0;37m"
 
 .c.o: $(SRC) $(LIBFT) $(HDR)
-	@cc $(CFLAGS) -c $< -o $(<:.c=.o)
+	@cc $(CFLAGS) -Imlx -c $< -o $(<:.c=.o)
 	@echo "Just a few more seconds"
 
 $(LIBFT):
