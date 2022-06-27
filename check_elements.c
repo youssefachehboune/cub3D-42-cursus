@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:13:07 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 20:55:25 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/27 09:38:10 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_textures(char **str, t_file *file)
 	int	i;
 
 	i = 4;
-	if(str[1][ft_strlen(str[1]) - 1] == '\n')
+	if (str[1][ft_strlen(str[1]) - 1] == '\n')
 		i = 5;
 	if (ft_strncmp(".xpm", str[1] + ft_strlen(str[1]) - i, 4))
 		return (printf("Error\nWrong extension\n"), 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 20:36:14 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/27 09:36:09 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,12 @@ int		fill_textures(t_file *file, char **str);
 int		check_elements(t_file *file, char **str);
 char	**ft_split2(char *str, char *charset);
 
+void init_player_dir(t_mlx *mlx, int x, int y);
+void init_player(t_mlx *mlx);
+int init_txt(t_mlx *mlx);
+int init_mlx(t_mlx *mlx, t_file *file);
+
+int struct_allocation(t_mlx *mlx);
+int txt_adr_ptr(t_mlx *mlx, char *path, int dir);
+int start_mlx(t_mlx *mlx, t_file *file);
 #endif
