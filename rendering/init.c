@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/29 14:24:05 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:12:21 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,28 @@ void	init_player(t_mlx *mlx)
 	}
 }
 
-int	txt_adr_ptr(t_mlx *mlx, char *path, int dir)
+int	txt_adr_ptr(t_mlx *mlx, char *path, t_txt txt)
 {
-	mlx->txt[dir].txt_ptr = mlx_xpm_file_to_image(mlx->init_ptr, path, &mlx->txt[dir].w, &mlx->txt[dir].h);
-	if (!mlx->txt[dir].txt_ptr)
+	txt.txt_ptr = mlx_xpm_file_to_image(mlx->init_ptr,
+			path, &txt.w, &txt.h);
+	if (!txt.txt_ptr)
 		return (1);
-	mlx->txt[dir].txt_adr = mlx_get_data_addr(mlx->txt[dir].txt_ptr, &mlx->txt[dir].bpp, &mlx->txt[dir].len, &mlx->txt[dir].endian);
-	if (!mlx->txt[dir].txt_adr)
+	txt.txt_adr = mlx_get_data_addr(txt.txt_ptr, &txt.bpp,
+			&txt.len, &txt.endian);
+	if (!txt.txt_adr)
 		return (1);
 	return (0);
 }
 
 int	init_txt(t_mlx *mlx)
 {
-	if (txt_adr_ptr(mlx, mlx->file->we, 0))
+	if (txt_adr_ptr(mlx, mlx->file->we, mlx->txt[0]))
 		return (1);
-	else if (txt_adr_ptr(mlx, mlx->file->no, 1))
+	else if (txt_adr_ptr(mlx, mlx->file->no, mlx->txt[1]))
 		return (1);
-	else if (txt_adr_ptr(mlx, mlx->file->ea, 2))
+	else if (txt_adr_ptr(mlx, mlx->file->ea, mlx->txt[2]))
 		return (1);
-	else if (txt_adr_ptr(mlx, mlx->file->so, 3))
+	else if (txt_adr_ptr(mlx, mlx->file->so, mlx->txt[3]))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/29 10:20:11 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:15:34 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ typedef struct s_mlx
 	void		*win;
 	void		*img;
 	char		*addr_img;
-	int			bits_pp;
-	int			size_l;
-	int			endian;
+	int			bpp;
+	int			sl;
+	int			en;
 	t_file		*file;
 	t_player	*player;
 	t_txt		*txt;
@@ -97,6 +97,6 @@ int init_txt(t_mlx *mlx);
 int init_mlx(t_mlx *mlx, t_file *file);
 
 int struct_allocation(t_mlx *mlx);
-int txt_adr_ptr(t_mlx *mlx, char *path, int dir);
+int	txt_adr_ptr(t_mlx *mlx, char *path, t_txt txt);
 int start_mlx(t_mlx *mlx, t_file *file);
 #endif
