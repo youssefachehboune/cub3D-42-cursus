@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/27 09:36:09 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/29 10:20:11 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include "gnl/get_next_line.h"
 # include "mlx.h"
 # include "math.h"
+
+# define WIN_W	1080
+# define WIN_H	1080
+# define FOV	60
+typedef struct s_ray
+{
+	double		p_dx_pos;
+	double		p_dy_pos;
+} t_ray;
+
 
 typedef struct s_file
 {
@@ -35,6 +45,8 @@ typedef struct s_player
 {
 	int		x_pos;
 	int		y_pos;
+	double	dx_pos;
+	double	dy_pos;
 	double	player_dir;
 }	t_player;
 
@@ -53,9 +65,15 @@ typedef struct s_mlx
 {
 	void		*init_ptr;
 	void		*win;
+	void		*img;
+	char		*addr_img;
+	int			bits_pp;
+	int			size_l;
+	int			endian;
 	t_file		*file;
 	t_player	*player;
 	t_txt		*txt;
+	t_ray		*ray;
 }	t_mlx;
 
 int		parsing(t_file *file, int ac, char **av);

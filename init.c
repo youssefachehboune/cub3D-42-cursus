@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/27 09:47:04 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:52:09 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	init_player(t_mlx *mlx)
 			if (ft_strchr("WSNE", mlx->file->scene[i][j]))
 			{
 				mlx->player->x_pos = i;
+				mlx->player->dx_pos = (double)i + 0.5;
 				mlx->player->y_pos = j;
+				mlx->player->dy_pos = (double)j + 0.5;
 				init_player_dir(mlx, i, j);
 			}
 			j++;
@@ -77,6 +79,7 @@ int	init_mlx(t_mlx *mlx, t_file *file)
 	mlx->player = NULL;
 	mlx->txt = NULL;
 	mlx->win = NULL;
+	mlx->ray = NULL;
 	mlx->init_ptr = mlx_init();
 	if (!mlx->init_ptr)
 		return (1);
@@ -85,7 +88,7 @@ int	init_mlx(t_mlx *mlx, t_file *file)
 	init_player(mlx);
 	if (init_txt(mlx))
 		return (1);
-	mlx->win = mlx_new_window(mlx->init_ptr, 1080, 1080, "Cub3D");
+	mlx->win = mlx_new_window(mlx->init_ptr, WIN_W, WIN_H, "Cub3D");
 	if (!mlx->win)
 		return (1);
 	return (0);
