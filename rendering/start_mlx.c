@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/29 18:16:35 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:06:23 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	init_ray(t_ray *ray, t_player *player, double ray_angle)
 {
 	ray->p_dx_pos = player->dx_pos;
 	ray->p_dy_pos = player->dy_pos;
+	ray->p_check_x = (int)ray->p_dx_pos;
+	ray->p_check_y = (int)ray->p_dy_pos;
 }
 
 int	put_ray(t_mlx *mlx, t_player *p, t_ray *ray)

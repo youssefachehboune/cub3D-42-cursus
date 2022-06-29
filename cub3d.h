@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/29 18:15:34 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:01:42 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_ray
 {
 	double		p_dx_pos;
 	double		p_dy_pos;
+	int			p_check_x;
+	int			p_check_y;
 } t_ray;
 
 
