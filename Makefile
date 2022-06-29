@@ -1,14 +1,18 @@
-NAME = cube3D
+NAME = cub3D
 
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-SRC = cub3d.c check_elements.c check_walls.c parsing.c fill_something.c ft_split2.c init.c start_mlx.c $(GNL)
+PARSING_SRC = $(addprefix parsing/, check_elements.c check_walls.c parsing.c fill_something.c ft_split2.c)
+
+RENDERING_SRC = $(addprefix rendering/, init.c start_mlx.c)
+
+SRC = cub3d.c $(RENDERING_SRC) $(GNL) $(PARSING_SRC)
 
 HDR = cub3d.h libft/libft.h gnl/get_next_line.h
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 

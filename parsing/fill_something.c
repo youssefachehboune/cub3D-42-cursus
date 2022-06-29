@@ -6,11 +6,11 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:08:20 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 20:59:13 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:10:35 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	continue_filling_lst(t_file *file, t_list *lst, char *line, int fd)
 {

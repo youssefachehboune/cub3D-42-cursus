@@ -6,11 +6,11 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:18:06 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/26 20:56:54 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:10:43 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	check_chars_used(char **str)
 {

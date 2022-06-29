@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   start_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/29 10:35:50 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:24:09 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	struct_allocation(t_mlx *mlx)
 {
@@ -42,6 +42,7 @@ int put_ray(t_mlx *mlx, t_player *p, t_ray *ray)
 		init_ray(ray, p, ray_angle);
 		x++;
 	}
+	return (0);
 }
 
 int create_image(t_mlx *mlx)
