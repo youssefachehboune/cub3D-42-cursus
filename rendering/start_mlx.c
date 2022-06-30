@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/29 21:06:23 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/30 13:44:14 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	init_ray(t_ray *ray, t_player *player, double ray_angle)
 	ray->p_dy_pos = player->dy_pos;
 	ray->p_check_x = (int)ray->p_dx_pos;
 	ray->p_check_y = (int)ray->p_dy_pos;
+	ray->r_dir_x = cos(ray_angle);
+	ray->r_dir_y = sin(ray_angle);
+	ray->r_step_x = 1 / fabs(ray->r_dir_x);
+	ray->r_step_y = 1 / fabs(ray->r_dir_y);
 }
 
 int	put_ray(t_mlx *mlx, t_player *p, t_ray *ray)
@@ -39,7 +43,7 @@ int	put_ray(t_mlx *mlx, t_player *p, t_ray *ray)
 	x = -1 * (WIN_W / 2);
 	while (x < (WIN_W / 2))
 	{
-		ray_angle = p->player_dir + (double)x * (FOV / WIN_W) * (M_PI / 180);
+		ray_angle = p->player_dir + (double)x * ((double)FOV / WIN_W) * (M_PI / 180);
 		camera_angle = (double)x * (FOV / WIN_W) * (M_PI / 180);
 		init_ray(ray, p, ray_angle);
 		x++;
