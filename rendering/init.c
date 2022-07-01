@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/06/29 18:12:21 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/01 00:15:48 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	init_player(t_mlx *mlx)
 		{
 			if (ft_strchr("WSNE", mlx->file->scene[i][j]))
 			{
-				mlx->player->x_pos = i;
-				mlx->player->dx_pos = (double)i + 0.5;
-				mlx->player->y_pos = j;
-				mlx->player->dy_pos = (double)j + 0.5;
+				mlx->player->x_pos = j;
+				mlx->player->dx_pos = (double)j + 0.5;
+				mlx->player->y_pos = i;
+				mlx->player->dy_pos = (double)i + 0.5;
 				init_player_dir(mlx, i, j);
 			}
 			j++;

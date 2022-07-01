@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/30 13:09:04 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:47:39 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define WIN_W	1080
 # define WIN_H	1080
 # define FOV	60
+# define MAX_R_LEN sqrt(pow(WIN_H, 2) + pow(WIN_W, 2))
+
 typedef struct s_ray
 {
 	double		p_dx_pos;
@@ -31,6 +33,16 @@ typedef struct s_ray
 	double		r_dir_y;
 	double		r_step_x;
 	double		r_step_y;
+	double		r_len_x;
+	double		r_len_y;
+	double		r_length;
+	int			increm_x;
+	int			increm_y;
+	int			wall_hit;
+	double		hit_x;
+	double		hit_y;
+	int			side;
+	double		wall_len;
 } t_ray;
 
 
@@ -97,12 +109,12 @@ int		fill_textures(t_file *file, char **str);
 int		check_elements(t_file *file, char **str);
 char	**ft_split2(char *str, char *charset);
 
-void init_player_dir(t_mlx *mlx, int x, int y);
-void init_player(t_mlx *mlx);
-int init_txt(t_mlx *mlx);
-int init_mlx(t_mlx *mlx, t_file *file);
+void	init_player_dir(t_mlx *mlx, int x, int y);
+void	init_player(t_mlx *mlx);
+int		init_txt(t_mlx *mlx);
+int		init_mlx(t_mlx *mlx, t_file *file);
 
-int struct_allocation(t_mlx *mlx);
-int	txt_adr_ptr(t_mlx *mlx, char *path, t_txt txt);
-int start_mlx(t_mlx *mlx, t_file *file);
+int		struct_allocation(t_mlx *mlx);
+int		txt_adr_ptr(t_mlx *mlx, char *path, t_txt txt);
+int		start_mlx(t_mlx *mlx, t_file *file);
 #endif
