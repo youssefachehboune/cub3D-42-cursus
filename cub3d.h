@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/30 16:47:39 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:24:02 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_ray
 	double		hit_y;
 	int			side;
 	double		wall_len;
+	int			wall_height;
 } t_ray;
 
 
@@ -115,6 +116,6 @@ int		init_txt(t_mlx *mlx);
 int		init_mlx(t_mlx *mlx, t_file *file);
 
 int		struct_allocation(t_mlx *mlx);
-int		txt_adr_ptr(t_mlx *mlx, char *path, t_txt txt);
+int		txt_adr_ptr(t_mlx *mlx, char *path, int dir);
 int		start_mlx(t_mlx *mlx, t_file *file);
 #endif

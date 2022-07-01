@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/01 08:44:10 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:47:47 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	find_wall(double max, t_ray *ray, t_file *file)
 		if (ray->r_len_x < ray->r_len_y)
 		{
 			ray->p_check_x += ray->increm_x;
-			ray->r_length = ray->r_len_x;/////
-			ray->r_len_x += ray->r_step_x;////
+			ray->r_length = ray->r_len_x;
+			ray->r_len_x += ray->r_step_x;
 			ray->side = 0;
 		}
 		else 
@@ -105,15 +105,62 @@ void	pixel_put(t_mlx *mlx, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+static int	get_texel_color(t_txt *txt, int x, int y)
+{
+	int		color;
+	char	*dst;
+
+	dst = txt->txt_adr + (y * txt->len + x * (txt->bpp / 8));
+	color = *(unsigned int *)dst;
+	return (color);
+}
+
+static int	dir_wall(t_ray *ray)
+{
+	if (ray->side == 0 && ray->r_dir_x < 0)
+		return (0);
+	else if (ray->side == 0 && ray->r_dir_x > 0)
+		return (2);
+	else if (ray->side == 1 && ray->r_dir_y < 0)
+		return (3);
+	else
+		return (1);
+}
+
+int draw_wall(t_mlx *mlx, t_ray *ray, int y)
+{
+	int dirc;
+	int col;
+	int d_wall;
+	double	text_x;
+	double	text_x_step;
+
+	d_wall = (int)((WIN_H + ray->wall_len) * 0.5);
+	dirc = dir_wall(ray);
+	col = (int)((ray->hit_x + ray->hit_y) * mlx->txt[dirc].w) % mlx->txt[dirc].w;
+	text_x = 0.00;
+	text_x_step = (mlx->txt[dirc].h - 1) / (double)ray->wall_len;
+	
+	while (ray->wall_height < d_wall)
+	{
+		if (ray->wall_height >= 0 && ray->wall_height <= WIN_H - 1)
+			pixel_put(mlx, y, ray->wall_height,
+				get_texel_color(&mlx->txt[dirc], col, (int)text_x));
+		ray->wall_height++;
+		text_x += text_x_step;
+	}
+	return (ray->wall_height);
+}
+
 void	draw_column(int x, t_ray *ray, t_mlx *mlx)
 {
 	int	y;
-	int	wall_height;
 
 	y = -1;
-	wall_height = (int)((WIN_H - ray->wall_len) / 2);
-	while (++y < wall_height)
+	ray->wall_height = (int)((WIN_H - ray->wall_len) / 2);
+	while (++y < ray->wall_height)
 		pixel_put(mlx, x, y, mlx->file->ceilling);
+	y = draw_wall(mlx, ray, x);
 	while (y < WIN_H)
 	{
 		pixel_put(mlx, x, y, mlx->file->floor);
