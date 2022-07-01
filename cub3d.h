@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/07/01 12:24:02 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/01 19:23:58 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define WIN_W	1080
 # define WIN_H	1080
 # define FOV	60
-# define MAX_R_LEN sqrt(pow(WIN_H, 2) + pow(WIN_W, 2))
 
 typedef struct s_ray
 {
