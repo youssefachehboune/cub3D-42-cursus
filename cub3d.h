@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/07/01 19:23:58 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 15:04:40 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ typedef struct s_player
 	double	dx_pos;
 	double	dy_pos;
 	double	player_dir;
+	int		up;
+	int		down;
+	int		left;
+	int		right;
+	int		rot_left;
+	int		rot_right;
 }	t_player;
 
 typedef struct s_txt
@@ -117,4 +123,8 @@ int		init_mlx(t_mlx *mlx, t_file *file);
 int		struct_allocation(t_mlx *mlx);
 int		txt_adr_ptr(t_mlx *mlx, char *path, int dir);
 int		start_mlx(t_mlx *mlx, t_file *file);
+
+int		close_win(t_mlx *mlx);
+int		press(int key, t_mlx *mlx);
+int		release(int key, t_mlx *mlx);
 #endif

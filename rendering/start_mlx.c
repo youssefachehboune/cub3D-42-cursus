@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/03 14:21:37 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 15:27:41 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,11 +249,18 @@ int	create_image(t_mlx *mlx)
 	return (0);
 }
 
+/*
+**	mlx_hook() calls a function when a specific event is being triggered
+**  see: https://harm-smits.github.io/42docs/libs/minilibx/hooks.html
+*/
 int	start_mlx(t_mlx *mlx, t_file *file)
 {
 	if (init_mlx(mlx, file))
 		return (1);
 	if (create_image(mlx))
 		return (1);
+	mlx_hook(mlx->win, 17, 1L<<17, close_win, mlx);
+	mlx_hook(mlx->win, 2, 1L<<0, press, mlx);
+	mlx_hook(mlx->win, 3, 1L<<1, release, mlx);
 	return (0);
 }

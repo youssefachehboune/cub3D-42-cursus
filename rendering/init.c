@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/02 19:03:21 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 15:03:43 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ void	init_player_dir(t_mlx *mlx, int x, int y)
 	else if (mlx->file->scene[x][y] == 'E')
 		mlx->player->player_dir = M_PI;
 }
+
+void	init_press_var(t_player *player)
+{
+	player->up = 0;
+	player->down = 0;
+	player->left = 0;
+	player->right = 0;
+	player->rot_left = 0;
+	player->rot_right = 0;
+}
+
 
 /*
 **	search for the player and save its coordinates.
@@ -55,6 +66,7 @@ void	init_player(t_mlx *mlx)
 		}
 		i++;
 	}
+	init_press_var(mlx->player);
 }
 
 /*

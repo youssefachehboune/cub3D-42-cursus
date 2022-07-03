@@ -4,7 +4,7 @@ GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
 PARSING_SRC = $(addprefix parsing/, check_elements.c check_walls.c parsing.c fill_something.c ft_split2.c)
 
-RENDERING_SRC = $(addprefix rendering/, init.c start_mlx.c)
+RENDERING_SRC = $(addprefix rendering/, init.c start_mlx.c hooks.c)
 
 SRC = cub3d.c $(RENDERING_SRC) $(GNL) $(PARSING_SRC)
 
