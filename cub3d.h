@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/07/03 18:55:26 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/04 00:30:11 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define WIN_W	1080
 # define WIN_H	1080
 # define FOV	60
+# define SPEED	0.025
 
 typedef struct s_ray
 {
@@ -127,5 +128,11 @@ int		cast_ray(t_mlx *mlx, t_player *p, t_ray *ray);
 int		close_win(t_mlx *mlx);
 int		press(int key, t_mlx *mlx);
 int		release(int key, t_mlx *mlx);
-int update(void *mlx_v);
+int		update(void *mlx_v);
+
+int		wall_collision(t_mlx *mlx, double px, double py);
+void	move_up(t_mlx *mlx);
+void	move_down(t_mlx *mlx);
+void	move_left(t_mlx *mlx);
+void	move_right(t_mlx *mlx);
 #endif

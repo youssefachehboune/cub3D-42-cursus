@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/03 15:03:43 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 22:46:47 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	init_player_dir(t_mlx *mlx, int x, int y)
 	else if (mlx->file->scene[x][y] == 'E')
 		mlx->player->player_dir = M_PI;
 }
+
+/*
+**	These variables are 1 if the keys related to them are pressed,
+**	and 0 if released.
+*/
 
 void	init_press_var(t_player *player)
 {
@@ -70,8 +75,9 @@ void	init_player(t_mlx *mlx)
 }
 
 /*
-**	The mlx_xpm_file_to_image(); will allow you to read xpm files directly into an image object. and return NULL if it failed or a pointer that will be used later.
-**	The mlx_get_data_addr: will bring the addr of the img.
+**	The mlx_xpm_file_to_image(); will allow you to read xpm files directly into an image object,
+**	and return NULL if it failed or a pointer that will be used later.
+**	The mlx_get_data_addr will get the address of the image.
 */
 
 int	txt_adr_ptr(t_mlx *mlx, char *path, int dir)
@@ -103,8 +109,8 @@ int	init_txt(t_mlx *mlx)
 
 /*
 **  first of all, we need to initialize the connection between our program and the display.
-**  the mlx_init(); function will create this connection , and return void *  to use it later.
-**  the mlx_new_window(); function will create a new window on the screen, and return void * to use it later to draw in it;
+**  mlx_init will create this connection , and return void *  to use it later.
+**  mlx_new_window will create a new window on the screen, and return void * to use it later to draw in it;
 **  see : https://qst0.github.io/ft_libgfx/man_mlx.html
 */
 
