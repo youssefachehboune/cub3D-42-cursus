@@ -6,11 +6,15 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/01 20:15:06 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 14:21:37 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+/*
+**  allocate for a player, a ray and 4 textures, and protect it.
+*/
 
 int	struct_allocation(t_mlx *mlx)
 {
@@ -28,6 +32,7 @@ int	struct_allocation(t_mlx *mlx)
 **	ray->r_dir_x and ray->r_dir_y are used to know which direction the ray is going
 **	ray->r_step_x is the distance between each x coordinate of the intersection of the ray with the *horizontal* lines
 **	ray->r_step_y is the distance between each y coordinate of the intersection of the ray with the *vertical* lines
+**	see : https://permadi.com/1996/05/ray-casting-tutorial-7/
 */
 
 void	init_ray(t_ray *ray, t_player *player, double ray_angle)
@@ -201,13 +206,13 @@ void	draw_column(int x, t_ray *ray, t_mlx *mlx)
 }
 
 /*
-**	ray_angle is the angle between the y axis and the ray
+**	ray_angle is the angle between the x axis and the ray
 **	camera_angle is the angle between the z axis and the ray
 **	ray->wall_len is the heigth of the projected wall
 **	see: https://permadi.com/1996/05/ray-casting-tutorial-8/
 **	and https://permadi.com/1996/05/ray-casting-tutorial-9/
 */
-int	put_ray(t_mlx *mlx, t_player *p, t_ray *ray)
+int	cast_ray(t_mlx *mlx, t_player *p, t_ray *ray)
 {
 	int		x;
 	double	ray_angle;
@@ -227,14 +232,19 @@ int	put_ray(t_mlx *mlx, t_player *p, t_ray *ray)
 	}
 	return (0);
 }
-
+/*
+**	The mlx_new_image(); will create a new image in memory, and return a void * needed to manipulate this image later.
+**	The mlx_get_data_addr(): will bring the addr of the img.
+**	The mlx_put_image_to_window(); will put the image in the window.
+**	see : https://gontjarow.github.io/MiniLibX/mlx_new_image.html
+*/
 int	create_image(t_mlx *mlx)
 {
 	mlx->img = mlx_new_image(mlx->init_ptr, WIN_W, WIN_H);
 	if (!mlx->img)
 		return (1);
 	mlx->addr_img = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->sl, &mlx->en);
-	put_ray(mlx, mlx->player, mlx->ray);
+	cast_ray(mlx, mlx->player, mlx->ray);
 	mlx_put_image_to_window(mlx->init_ptr, mlx->win, mlx->img, 0, 0);
 	return (0);
 }

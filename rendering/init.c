@@ -6,11 +6,15 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/01 12:24:38 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:03:21 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+/*
+**	init the direction that the player looks towards, based on circle trigonometry.
+*/
 
 void	init_player_dir(t_mlx *mlx, int x, int y)
 {
@@ -24,6 +28,10 @@ void	init_player_dir(t_mlx *mlx, int x, int y)
 		mlx->player->player_dir = M_PI;
 }
 
+/*
+**	search for the player and save its coordinates.
+**	dx_pos and dy_pos are used to position the player to the middle of the block.
+*/	
 void	init_player(t_mlx *mlx)
 {
 	int	i;
@@ -48,6 +56,11 @@ void	init_player(t_mlx *mlx)
 		i++;
 	}
 }
+
+/*
+**	The mlx_xpm_file_to_image(); will allow you to read xpm files directly into an image object. and return NULL if it failed or a pointer that will be used later.
+**	The mlx_get_data_addr: will bring the addr of the img.
+*/
 
 int	txt_adr_ptr(t_mlx *mlx, char *path, int dir)
 {
@@ -75,6 +88,13 @@ int	init_txt(t_mlx *mlx)
 		return (1);
 	return (0);
 }
+
+/*
+**  first of all, we need to initialize the connection between our program and the display.
+**  the mlx_init(); function will create this connection , and return void *  to use it later.
+**  the mlx_new_window(); function will create a new window on the screen, and return void * to use it later to draw in it;
+**  see : https://qst0.github.io/ft_libgfx/man_mlx.html
+*/
 
 int	init_mlx(t_mlx *mlx, t_file *file)
 {
