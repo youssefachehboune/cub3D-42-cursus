@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/03 15:27:41 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 19:46:23 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	init_ray_2(t_ray *ray)
 */
 void	find_wall(t_ray *ray, t_file *file)
 {
-
 	while (ray->wall_hit != 1)
 	{
 		if (ray->r_len_x < ray->r_len_y)
@@ -118,7 +117,7 @@ void	find_wall(t_ray *ray, t_file *file)
 			ray->side = 1;
 		}
 		if (file->scene[ray->p_check_y][ray->p_check_x] == '1')
-			ray->wall_hit = 1;
+			ray->wall_hit = 1;	
 	}
 	ray->hit_x = ray->p_dx_pos + ray->r_dir_x * ray->r_length;
 	ray->hit_y = ray->p_dy_pos + ray->r_dir_y * ray->r_length;	
@@ -138,6 +137,7 @@ void	pixel_put(t_mlx *mlx, int x, int y, int color)
 /*
 **	this function goes to the byte that contains the color and returns its value
 */
+
 static int	get_texel_color(t_txt *txt, int x, int y)
 {
 	int		color;
@@ -262,5 +262,6 @@ int	start_mlx(t_mlx *mlx, t_file *file)
 	mlx_hook(mlx->win, 17, 1L<<17, close_win, mlx);
 	mlx_hook(mlx->win, 2, 1L<<0, press, mlx);
 	mlx_hook(mlx->win, 3, 1L<<1, release, mlx);
+	mlx_loop_hook(mlx->init_ptr, update, mlx);
 	return (0);
 }

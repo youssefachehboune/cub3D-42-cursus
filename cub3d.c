@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:03:53 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/27 09:35:32 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 19:47:14 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	main(int ac, char **av)
 		return (1);
 	if (start_mlx(&mlx, &file))
 		return (1);
-	free_file(&file);
 	mlx_loop(mlx.init_ptr);
-	return (0);
+	return (free_file(&file), 0);
 }

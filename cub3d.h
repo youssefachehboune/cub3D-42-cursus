@@ -6,7 +6,7 @@
 /*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/07/03 15:04:40 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/03 18:55:26 by yachehbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,9 @@ int		init_mlx(t_mlx *mlx, t_file *file);
 int		struct_allocation(t_mlx *mlx);
 int		txt_adr_ptr(t_mlx *mlx, char *path, int dir);
 int		start_mlx(t_mlx *mlx, t_file *file);
-
+int		cast_ray(t_mlx *mlx, t_player *p, t_ray *ray);
 int		close_win(t_mlx *mlx);
 int		press(int key, t_mlx *mlx);
 int		release(int key, t_mlx *mlx);
+int update(void *mlx_v);
 #endif

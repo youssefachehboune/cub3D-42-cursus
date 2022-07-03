@@ -4,7 +4,7 @@ GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
 PARSING_SRC = $(addprefix parsing/, check_elements.c check_walls.c parsing.c fill_something.c ft_split2.c)
 
-RENDERING_SRC = $(addprefix rendering/, init.c start_mlx.c hooks.c)
+RENDERING_SRC = $(addprefix rendering/, init.c start_mlx.c hooks.c update.c)
 
 SRC = cub3d.c $(RENDERING_SRC) $(GNL) $(PARSING_SRC)
 
@@ -12,11 +12,11 @@ HDR = cub3d.h libft/libft.h gnl/get_next_line.h
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = #-fsanitize=address -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
-all: $(NAME) clean
+all: $(NAME) #clean
 
 $(NAME): $(OBJ) $(LIBFT) $(HDR)
 	@gcc -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
