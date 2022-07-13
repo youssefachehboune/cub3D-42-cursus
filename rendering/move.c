@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 21:19:04 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/03 22:33:53 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:51:05 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	move_down(t_mlx *mlx)
 	double	new_dy_pos;
 
 	new_dx_pos = mlx->player->dx_pos - cos(mlx->player->player_dir) * SPEED;
-	new_dy_pos = mlx->player->dy_pos - sin(mlx->player->player_dir)* SPEED;
+	new_dy_pos = mlx->player->dy_pos - sin(mlx->player->player_dir) * SPEED;
 	if (!wall_collision(mlx, new_dx_pos, new_dy_pos))
 	{
 		mlx->player->dx_pos = new_dx_pos;
@@ -84,8 +84,10 @@ void	move_left(t_mlx *mlx)
 	double	new_dx_pos;
 	double	new_dy_pos;
 
-	new_dx_pos = mlx->player->dx_pos + cos(mlx->player->player_dir - (M_PI_2)) * SPEED;
-	new_dy_pos = mlx->player->dy_pos + sin(mlx->player->player_dir - (M_PI_2)) * SPEED;
+	new_dx_pos = mlx->player->dx_pos
+		+ cos(mlx->player->player_dir - (M_PI_2)) * SPEED;
+	new_dy_pos = mlx->player->dy_pos
+		+ sin(mlx->player->player_dir - (M_PI_2)) * SPEED;
 	if (!wall_collision(mlx, new_dx_pos, new_dy_pos))
 	{
 		mlx->player->dx_pos = new_dx_pos;
@@ -104,8 +106,10 @@ void	move_right(t_mlx *mlx)
 	double	new_dx_pos;
 	double	new_dy_pos;
 
-	new_dx_pos = mlx->player->dx_pos + cos(mlx->player->player_dir + (M_PI_2)) * SPEED;
-	new_dy_pos = mlx->player->dy_pos + sin(mlx->player->player_dir + (M_PI_2)) * SPEED;
+	new_dx_pos = mlx->player->dx_pos
+		+ cos(mlx->player->player_dir + (M_PI_2)) * SPEED;
+	new_dy_pos = mlx->player->dy_pos
+		+ sin(mlx->player->player_dir + (M_PI_2)) * SPEED;
 	if (!wall_collision(mlx, new_dx_pos, new_dy_pos))
 	{
 		mlx->player->dx_pos = new_dx_pos;

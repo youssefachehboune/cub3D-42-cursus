@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachehbo <yachehbo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/03 22:46:47 by yachehbo         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:57:24 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 /*
-**	init the direction that the player looks towards, based on circle trigonometry.
+**	init the direction that the player looks towards,
+**	based on the circle trigonometry.
 */
 
 void	init_player_dir(t_mlx *mlx, int x, int y)
@@ -29,25 +30,10 @@ void	init_player_dir(t_mlx *mlx, int x, int y)
 }
 
 /*
-**	These variables are 1 if the keys related to them are pressed,
-**	and 0 if released.
-*/
-
-void	init_press_var(t_player *player)
-{
-	player->up = 0;
-	player->down = 0;
-	player->left = 0;
-	player->right = 0;
-	player->rot_left = 0;
-	player->rot_right = 0;
-}
-
-
-/*
 **	search for the player and save its coordinates.
 **	dx_pos and dy_pos are used to position the player to the middle of the block.
-*/	
+*/
+
 void	init_player(t_mlx *mlx)
 {
 	int	i;
@@ -84,11 +70,10 @@ int	txt_adr_ptr(t_mlx *mlx, char *path, int dir)
 {
 	mlx->txt[dir].txt_ptr = mlx_xpm_file_to_image(mlx->init_ptr,
 			path, &mlx->txt[dir].w, &mlx->txt[dir].h);
-		
 	if (!mlx->txt[dir].txt_ptr)
 		return (1);
-	mlx->txt[dir].txt_adr = mlx_get_data_addr(mlx->txt[dir].txt_ptr, &mlx->txt[dir].bpp,
-			&mlx->txt[dir].len, &mlx->txt[dir].endian);
+	mlx->txt[dir].txt_adr = mlx_get_data_addr(mlx->txt[dir].txt_ptr,
+			&mlx->txt[dir].bpp, &mlx->txt[dir].len, &mlx->txt[dir].endian);
 	if (!mlx->txt[dir].txt_adr)
 		return (1);
 	return (0);
